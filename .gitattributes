@@ -1,0 +1,14 @@
+# Git LFS — large model artifacts.
+# The .safetensors weights are 0.9–1.1 GB each and exceed GitHub's 100 MB file
+# limit, so they must be stored in LFS. SentencePiece + binary checkpoints too.
+*.safetensors filter=lfs diff=lfs merge=lfs -text
+*.bin         filter=lfs diff=lfs merge=lfs -text
+*.model       filter=lfs diff=lfs merge=lfs -text
+
+# tokenizer.json (~17 MB) is left as normal git: it is JSON, well under the
+# 100 MB limit, and benefits from text compression.
+
+# Keep model/config JSON and notebooks LF-normalized (avoid CRLF churn on Windows).
+*.json text eol=lf
+*.ipynb text eol=lf
+

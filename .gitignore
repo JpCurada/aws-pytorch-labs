@@ -216,3 +216,24 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+crash.log
+crash.*.log
+# Keep the example; ignore real (possibly secret-bearing) var files.
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.terraform.lock.hcl
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Jupyter/Kaggle scratch artifacts that leak into models/
+models/state.db
+models/.virtual_documents/
