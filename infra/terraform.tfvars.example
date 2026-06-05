@@ -1,0 +1,17 @@
+# Copy to terraform.tfvars and adjust as needed.
+
+aws_region   = "ap-southeast-1"
+project_name = "filipino-sentiment"
+
+# More memory = more vCPU = faster inference. 3008 is a sane start for both models.
+lambda_memory_mb = 3008
+lambda_timeout_s = 120
+
+# Load both models at container start (slower cold start, faster first request).
+preload_models = false
+
+# Function URL auth: "NONE" (public, anyone with the URL) or "AWS_IAM"
+# (SigV4-signed requests only). Set to "AWS_IAM" to lock the endpoint down.
+function_url_auth = "NONE"
+
+log_retention_days = 14
