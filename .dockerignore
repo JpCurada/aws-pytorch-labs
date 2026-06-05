@@ -1,0 +1,25 @@
+# Keep the Docker build context small and the image clean.
+# NOTE: models/ is intentionally NOT ignored — weights are baked into the image.
+
+.venv/
+**/__pycache__/
+**/*.pyc
+.git/
+.gitignore
+
+notebooks/
+data/
+infra/
+docker/
+
+# Soft targets and eval artifacts are training-only; not needed for inference.
+models/*.npy
+models/*.png
+models/*.html
+models/*.db
+models/.virtual_documents/
+
+.env
+.env.example
+*.md
+!api/README.md
